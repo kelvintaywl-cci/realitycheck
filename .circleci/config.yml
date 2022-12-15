@@ -262,37 +262,9 @@ jobs:
 
 workflows:
   version: 2
-  resource_class_jobs:
-    jobs:
-      - small
-      - medium
-      - medium+
-      - large
-      - xlarge
-
   vm_jobs:
     jobs:
       - machine
       - remote_docker
       - docker_layer_caching
       - machine_dlc
-  
-  aws_jobs:
-    jobs:
-      - check_if_environment_is_aws
-      - aws_arm:
-          requires:
-            - check_if_environment_is_aws
-  
-  feature_jobs:
-    jobs:
-      - save_and_restore_cache
-      - contexts:
-          context: org-global
-      - multi-contexts:
-          context: individual-local
-      - write_workspace
-      - read_workspace:
-          requires:
-            - write_workspace
-      - artifacts_test_results
