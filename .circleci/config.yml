@@ -7,3 +7,18 @@ jobs:
     steps:
       - run: printenv CIRCLE_BRANCH
       - run: echo FOO
+
+workflows:
+  complicated:
+    jobs:
+      - build
+      - build:
+          name: build2
+          requires:
+            - build
+  def:
+    jobs:
+      - build
+  ghi:
+    jobs:
+      - build
