@@ -6,3 +6,4 @@ jobs:
       - image: cimg/base:current
     steps:
       - run: printenv CIRCLE_BRANCH
+      - run: echo FOO
