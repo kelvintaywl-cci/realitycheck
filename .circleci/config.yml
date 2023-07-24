@@ -1,8 +1,5 @@
-version: 2
+version: 2.1
 
-resource_job_defaults: &resource_job_defaults
-  docker:
-    - image: cimg/ruby:2.4.10
   
 jobs:
   xlarge-cache-persist-restore:
