@@ -62,6 +62,14 @@ jobs:
   xlarge: # 8 vCPUs, 16GB RAM
     <<: *resource_job_defaults
     resource_class: xlarge
+
+  2xlarge: # 16 vCPUs, 32GB RAM
+    <<: *resource_job_defaults
+    resource_class: 2xlarge
+
+  2xlargeplus: # 20 vCPUs, 40GB RAM
+    <<: *resource_job_defaults
+    resource_class: '2xlarge+'
   
   check_if_environment_is_aws:
     docker:
@@ -269,6 +277,8 @@ workflows:
       - medium+
       - large
       - xlarge
+      - 2xlarge
+      - 2xlargeplus
 
   # vm_jobs:
   #   jobs:
